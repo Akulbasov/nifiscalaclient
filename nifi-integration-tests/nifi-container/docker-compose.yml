@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+  nifi:
+    build: .
+    image: nifi:1.0.0
+    hostname: nifi-cp
+    ports:
+    - "8080:8080"
+    environment:
+      - NIFI_HOSTNAME=nifi-cp
+      - NIFI_PROFILE=nifi-cp
+    container_name: nifi
+  
+  kafka:
+    image: ches/kafka
+    links:
+      - nifi
+

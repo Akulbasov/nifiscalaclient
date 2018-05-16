@@ -1,0 +1,12 @@
+{
+  "name": "nifi-api-client",
+  "version": "0.0.1",
+  "dependencies": {
+    "request": "*",
+    "js-yaml": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ijokarumawak/nifi-api-client-js.git"
+  }
+}
