@@ -21,7 +21,7 @@ import scala.util.{Failure, Success, Try}
 /**
   * NifiScalaClientApi
   *
-  * Anonymous (non-authenticated) homecredit.api API
+  *
   */
 
 
