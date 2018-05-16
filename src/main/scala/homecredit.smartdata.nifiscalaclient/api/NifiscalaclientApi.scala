@@ -315,7 +315,6 @@ object NifiscalaclientApi extends ScalajHttpClient
   def deleteTemplatesById():this.type = {
       getCurrentTemplatesIdList.map {
         idTemplate =>
-          println("This"+idTemplate)
           getAsJson[Templates](apiCall(
               List(
                 uUID,

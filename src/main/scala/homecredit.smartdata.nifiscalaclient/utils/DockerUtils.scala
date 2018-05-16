@@ -18,7 +18,8 @@ object DockerUtils {
     After delete,  this is only for user expirience
      */
     ("docker-compose " +
-      "--file /home/akulbasov/Downloads/nifi-integration-tests/docker-compose.yml" +
+      "--file /nifi-integration-tests/docker-compose.yml" +
+      //      "--file /home/akulbasov/Downloads/nifi-integration-tests/docker-compose.yml" +
       " down").!
 
     this
@@ -28,7 +29,8 @@ object DockerUtils {
     After delete, this is only for user expirience
      */
     ("docker-compose " +
-      "--file /home/akulbasov/Downloads/nifi-integration-tests/docker-compose.yml" +
+      "--file /nifi-integration-tests/docker-compose.yml" +
+      //      "--file /home/akulbasov/Downloads/nifi-integration-tests/docker-compose.yml" +
       " up -d nifi-cp").!
     this
   }
@@ -38,8 +40,9 @@ object DockerUtils {
        */
 
     ("docker-compose "+
-      "--file /home/akulbasov/Downloads/nifi-integration-tests/docker-compose.yml"
-        #| Seq("awk","{print split($1,a,\" \")}")).!
+      "--file /nifi-integration-tests/docker-compose.yml"
+//      "--file /home/akulbasov/Downloads/nifi-integration-tests/docker-compose.yml"
+      #| Seq("awk","{print split($1,a,\" \")}")).!
 
     this
   }
