@@ -6,6 +6,21 @@ import java.nio.charset.StandardCharsets
 import java.nio.file.{Files, Paths}
 
 trait FileUtils {
+
+  val currentProjPath = System.getProperty("user.dir")
+
+
+
+
+  def filesExist(str:String): Option[String] ={
+    Option(str)
+      .getOrElse(return None)
+      new File(str).exists match {
+       case true => Some(str)
+       case false => None
+      }
+  }
+
   @throws[IOException]
   @throws[URISyntaxException]
   def readFileFromClasspath(fileName: String): String = {

@@ -1,3 +1,5 @@
+import scala.sys.process.Process
+
 name := "nifiscalaclient"
 
 //version := "0.1-SNAPSHOT"

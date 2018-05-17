@@ -1,7 +1,10 @@
 package homecredit.smartdata.nifiscalaclient.utils
 import sys.process._
 
-object DockerUtils {
+object DockerUtils extends FileUtils {
+
+  val docComposePath = currentProjPath + "/nifi-integration-tests/docker-compose.yml"
+
   lazy val dockerGetNifiContainerId:Option[String] = {
     Seq(
       "/bin/sh","-c",
@@ -15,11 +18,10 @@ object DockerUtils {
 
   lazy val dockerDown: this.type = {
     /*
-    After delete,  this is only for user expirience
+    After delete, this is only for user expirience
      */
     ("docker-compose " +
-      "--file /nifi-integration-tests/docker-compose.yml" +
-      //      "--file /home/akulbasov/Downloads/nifi-integration-tests/docker-compose.yml" +
+      s"--file ${docComposePath}" +
       " down").!
 
     this
@@ -29,8 +31,7 @@ object DockerUtils {
     After delete, this is only for user expirience
      */
     ("docker-compose " +
-      "--file /nifi-integration-tests/docker-compose.yml" +
-      //      "--file /home/akulbasov/Downloads/nifi-integration-tests/docker-compose.yml" +
+      s"--file ${docComposePath}" +
       " up -d nifi-cp").!
     this
   }
@@ -40,8 +41,7 @@ object DockerUtils {
        */
 
     ("docker-compose "+
-      "--file /nifi-integration-tests/docker-compose.yml"
-//      "--file /home/akulbasov/Downloads/nifi-integration-tests/docker-compose.yml"
+      s"--file ${docComposePath}"
       #| Seq("awk","{print split($1,a,\" \")}")).!
 
     this
